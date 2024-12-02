@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../../lib/supabase';
 
 export function ResetPasswordForm() {
   const [email, setEmail] = useState('');
@@ -27,6 +28,26 @@ export function ResetPasswordForm() {
       setLoading(false);
     }
   };
+
+  const handlePasswordReset = async (email: string) => {
+    try {
+      console.log('Attempting password reset for:', email)
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/update-password`,
+      })
+      
+      if (error) {
+        console.error('Password reset error:', error)
+        throw error
+      }
+      
+      console.log('Password reset successful:', data)
+      // Handle success
+    } catch (error) {
+      console.error('Password reset failed:', error)
+      // Handle error
+    }
+  }
 
   if (success) {
     return (
