@@ -18,7 +18,12 @@ export function ResetPasswordForm() {
     try {
       setError(null);
       setLoading(true);
-      await resetPassword(email);
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/update-password`,
+      });
+      
+      if (error) throw error;
+      
       console.log('Password reset email sent');
       setSuccess(true);
     } catch (err) {
@@ -28,26 +33,6 @@ export function ResetPasswordForm() {
       setLoading(false);
     }
   };
-
-  const handlePasswordReset = async (email: string) => {
-    try {
-      console.log('Attempting password reset for:', email)
-      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/update-password`,
-      })
-      
-      if (error) {
-        console.error('Password reset error:', error)
-        throw error
-      }
-      
-      console.log('Password reset successful:', data)
-      // Handle success
-    } catch (error) {
-      console.error('Password reset failed:', error)
-      // Handle error
-    }
-  }
 
   if (success) {
     return (
