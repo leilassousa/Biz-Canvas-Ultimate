@@ -1,0 +1,80 @@
+Core Features:
+
+User Authentication & Management
+
+
+Login/Signup functionality
+User profile management
+Save and resume assessment progress
+Multiple assessment management
+
+
+Assessment Navigation System
+
+
+One question displayed at a time
+Back/Next navigation buttons
+Progress tracker
+Category headers with preambles
+Save progress functionality
+Question history/review capability
+
+
+Question Types and Structure
+
+
+11 main categories with individual preambles
+Text input questions
+Confidence level rating for each answer
+Progress validation
+Data persistence between navigation
+
+
+Dashboard Features
+
+
+Overview of saved assessments
+Start new assessment option
+Resume incomplete assessments
+View completed assessments
+Export/share assessment results
+
+
+Data Visualization & Analysis
+
+
+Confidence level analysis per category
+Progress tracking visualization
+Assessment completion status
+Historical data comparison
+Category-wise performance metrics
+
+
+Navigation Structure
+
+
+Home (Landing page)
+Dashboard (Assessment management)
+Login/Signup pages
+Assessment workspace
+Results/Analysis view
+
+Technical Requirements:
+
+Data Management
+
+
+Real-time save functionality
+Local storage for draft answers
+Database for user data and completed assessments
+Session management
+
+
+User Interface
+
+
+Responsive design
+Clear category identification
+Progress indication
+Confidence level input mechanism
+Warning system for unsaved changes
